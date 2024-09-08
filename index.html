@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarPooling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #ffffff; */
+        }
+
+        nav {
+            display: flex;
+            margin: 0 90px;
+            justify-content: space-between;
+            /* box-shadow: 0 0 1px gray inset; */
+            /* padding: 2px; */
+        }
+
+        nav .r-nav {
+            display: flex;
+
+        }
+
+        .r-nav i {
+            margin: 7px;
+        }
+
+        .h-search {
+            padding: 10px;
+            /* background-color: #f0f0f0; */
+            border-radius: 15px;
+            margin: 0 10px;
+            /* background-color: #4CAF50; */
+
+        }
+
+        .logo {
+
+
+            padding: 10px;
+        }
+
+        .logo span {
+            color: teal;
+            font-weight: 800;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+        }
+
+        .logo p {
+            display: inline;
+            color: royalblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 21px;
+        }
+
+        .h-search i {
+            font-size: 20px;
+        }
+
+        .h-search span {
+            font-size: 18px;
+        }
+
+        .h-ride {
+            padding: 7px;
+            /* background-color: #4CAF50; */
+
+        }
+
+        .h-ride button {
+            padding: 10px;
+            /* border-radius: 15px; */
+            font-size: 17px;
+            border: none;
+            background-color: #ffffff;
+
+        }
+
+        .h-user .fa-user {
+            font-size: 20px;
+            /* background-color: #ccc; */
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .h-user .fa-less-than {
+            transform: rotate(-90deg);
+            font-size: larger;
+
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 5px;
+            /* box-shadow: 0 0 3px rgb(255, 255, 255)  ; */
+            /* display: flex;
+            justify-content: space-between;
+            align-items: center; */
+        }
+
+        .hero {
+            background-color: #e0e0e0;
+            text-align: center;
+            /* padding: 50px; */
+        }
+
+        .h-img img {
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        /* .h-text {
+            position: absolute;
+            top: 36%;
+            left: 15%;
+            background-color: rgba(57, 57, 247, 0.211);
+            padding: 5px;
+            border: 1px solid gray;
+
+        } */
+        .search-container {
+            position: relative;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            /* padding: 20px; */
+            margin: 50px 200px;
+            border-radius: 5px;
+            background: linear-gradient(to right, skyblue, pink);
+            box-shadow: 3px 3px 3px gray;
+        }
+
+
+        .section1 p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(60, 60, 60);
+
+        }
+
+        .section1 h2 {
+            color: #1c1c1c;
+            margin-bottom: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-bottom: 20px; */
+        }
+
+        .input-group {
+            /* flex: 1; */
+            margin-right: 10px;
+
+        }
+
+        .inp-grp {
+            display: flex;
+            margin: 0 50px;
+            gap: 30px;
+            /* justify-content: space-between; */
+            position: absolute;
+            top: -50px;
+            padding: 10px;
+            background-color: #0062ff;
+            border-radius: 10px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            font-size: large;
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            background-color: #00c807;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section1 {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+        }
+
+        .section2 {
+            display: flex;
+            background-color: rgb(35, 35, 253);
+
+        }
+
+        .section3 {
+            display: flex;
+            background-color: rgb(255, 236, 240);
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 0 6px gray inset;
+
+        }
+
+        .left-content,
+        .right-content {
+            width: 50%;
+        }
+
+        .left-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .leftContent {
+            width: 450px;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .rightContent {
+            width: 450px;
+            display: flex;
+            flex-direction: column;
+            color: #000000;
+            font-size: 20px;
+        }
+
+        .leftContent button {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 250px;
+        }
+
+        .rightContent button {
+            font-size: 20px;
+            padding: 10px 20px;
+            width: 250px;
+        }
+
+        .help-center {
+            display: flex;
+            padding: 20px;
+            margin: 20px 100px;
+            background-color: #0062ff;
+            flex-wrap: wrap;
+            color: white;
+        }
+
+        .sec {
+            border-bottom: 1px solid #ccc;
+            width: 600px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .sec h2 {
+            font-size: 18px;
+        }
+
+        .sec p {
+            margin: 0;
+            overflow: auto;
+            height: 77px;
+            /* Adjust height as needed */
+            text-overflow: ellipsis;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 17px;
+        }
+
+        .expanded {
+            height: auto;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+        }
+
+        .right-column li,.left-column li {
+            list-style: none;
+            margin: 5px;
+        }
+        
+       .right-column a,.left-column a {
+            text-decoration: none;
+            color: #232323;
+            font-size: 17px;
+        }
+
+        .social-media {
+            display: flex;
+           
+            /* justify-content: space-between; */
+        }
+
+        .social-media a {
+            margin: 0 5px;
+            font-size: 19px;
+            margin: 0 20px;
+            color: #0062ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 17px;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #1f2836;
+            box-shadow: 0 0 3px white inset;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <nav>
+            <div class="l-nav">
+                <div class="logo">
+                    <span>Car</span>
+                    <p>PooLing</p>
+                    <!-- <img src="logo.png" alt="CarP00ling"> -->
+                </div>
+            </div>
+            <div class="r-nav">
+                <div class="h-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search</span>
+
+                </div>
+                <div class="h-ride">
+                    <i class="fa-solid fa-plus"></i>
+                    <button>Publish A Ride</button>
+                </div>
+                <div class="h-user">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-less-than"></i>
+                    <!-- <img src="user-icon.png" alt="User profile"> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="h-img">
+                <img src="/img/carpoolingaBanner.jpg" alt="Hero image">
+            </div>
+            <!-- <div class="h-text">
+                <h1>Welcome to CarP00l1ng</h1>
+                <p>Find your perfect ride</p>
+            </div> -->
+
+        </section>
+        <div class="search-container">
+            <div class="inp-grp">
+                <div class="input-group">
+                    <input type="text" list="origin" placeholder="Origin">
+                    <datalist id="origin">
+                        <option value="City A">
+                        <option value="City B">
+                        <option value="City C">
+                    </datalist>
+                </div>
+                <div class="input-group">
+                    <input type="text" list="destination" placeholder="Destination">
+                    <datalist id="destination">
+                        <option value="City D">
+                        <option value="City E">
+                        <option value="City F">
+                    </datalist>
+                </div>
+                <div class="input-group">
+                    <input type="date" placeholder="Departure Date">
+                </div>
+                <div class="input-group">
+                    <input type="number" placeholder="Number of Passengers">
+                </div>
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+        <section class="content">
+            <div class="section1">
+                <i class="fa-brands fa-bitcoin"></i>
+                <h2>Your pick of rides at low prices</h2>
+                <p>No matter where you’re going, by bus or carpool, find the perfect ride from our wide range of
+                    destinations and routes at low prices.</p>
+            </div>
+            <div class="section1">
+                <i class="fa-brands fa-readme"></i>
+                <h2>Trust who you travel with</h2>
+                <p>We take the time to get to know each of our members and bus partners. We check reviews, profiles and
+                    IDs, so you know who you’re travelling with and can book your ride at ease on our secure platform.
+                </p>
+            </div>
+            <div class="section1">
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <h2>Scroll, click, tap and go!</h2>
+                <p>Booking a ride has never been easier! Thanks to our simple app powered by great technology, you can
+                    book a ride close to you in just minutes.</p>
+            </div>
+        </section>
+        <section class="section2">
+            <div class="left-content">
+                <div class="leftContent">
+                    <h1>Help us keep you safe from scams</h1>
+                    <p>At BlaBlaCar, we're working hard to make our platform as secure as it can be. But when scams do
+                        happen, we want you to know exactly how to avoid and report them. Follow our tips to help us
+                        keep you safe</p>
+                    <button>Click To Learn More</button>
+                </div>
+            </div>
+            <div class="right-content">
+                <img src="https://cdn.blablacar.com/kairos/assets/images/scamDetective-653544b71d88f51797db.svg"
+                    alt="Image description" height="450px">
+            </div>
+        </section>
+        <section class="section3">
+            <div class="right-content">
+                <div class="rightContent">
+                    <img src="https://cdn.blablacar.com/kairos/assets/images/driver-c3bdd70e6a29c6af9ef1.svg"
+                        alt="Image description">
+
+                </div>
+            </div>
+            <div class="rightContent">
+                <h1>Driving in your car soon?</h1>
+                <p>Drivers, great news: your good habits are being rewarded! Benefit from the Carpool Bonus by
+                    carpooling. See eligibility conditions.</p>
+                <button>Offer <A></A> Ride</button>
+            </div>
+        </section>
+
+
+        <div class="help-center">
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+            <div class="sec">
+                <h2>How do I book a carpool ride?</h2>
+                <p>You can book a carpool ride on our mobile app, or on blablacar.in. Simply search for your
+                    destination, choose the date you want to travel and pick the carpool that suits you best!l Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. In numquam molestias, fuga Facere quisquam
+                    praesentium rerum libero!</p>
+                <button class="read-more">Read More</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="left-column">
+                <h3>Top carpool routes</h3>
+                <ul>
+                    <li><a href="#">Delhi → Chandigarh</a></li>
+                    <li><a href="#">Mumbai → Pune</a></li>
+                    <li><a href="#">Kanpur → Lucknow</a></li>
+                    <li><a href="#">Bengaluru → Chennai</a></li>
+                    <li><a href="#">Pune → Mumbai</a></li>
+                    <li><a href="#">All carpool routes</a></li>
+                    <li><a href="#">All carpool destinations</a></li>
+                </ul>
+            </div>
+            <div class="right-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">We're Hiring!</a></li>
+                </ul>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Terms and Conditions , CarPooling,@ 2024</p>
+            <p>Font Awesome is the internet's icon library and toolkit used by millions of designers, developers, and content creators</p>
+        </div>
+    </footer>
+    <script>
+
+    </script>
+</body>
+
+</html>
